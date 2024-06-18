@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { useAuth } from "../context/AuthContext";
@@ -100,6 +101,9 @@ const Home: React.FC = () => {
                         </div>
                     </div>
                 </div>
+                <div className="text-center underline text-blue-500">
+                    <Link to="/admin">Go to Admin Page</Link>
+                </div>
             </div>
             <div className="mobile mt-4 border border-gray-300 p-4 sm:hidden block">
                 <div className="text-center leading-6 p-2">
@@ -126,6 +130,9 @@ const Home: React.FC = () => {
                 </div>
                 <div className="leading-6 p-2 mt-2">
                     Omegle (omegul) is a great way to meet new friends, even while practicing social distancing. When you use Omegle, you are paired randomly with another person to talk one-on-one. If you prefer, you can add your interests and you'll be randomly paired with someone who selected some of the same interests.
+                </div>
+                <div className="text-center underline text-blue-500">
+                    <Link to="/admin">Go to Admin Page</Link>
                 </div>
             </div>
             {isTermsModal && <TermsModal setIsTermsModal={setIsTermsModal} />}
