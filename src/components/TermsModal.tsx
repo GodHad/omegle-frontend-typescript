@@ -20,9 +20,9 @@ const TermsModal: React.FC<Props> = ({ setIsTermsModal }) => {
 
     return (
         <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-40 flex justify-center items-center overflow-hidden">
-            <div className="bg-white p-8 rounded-2xl w-5/6 sm:w-1/2">
+            <div className="bg-slate-100 p-8 rounded-2xl w-5/6 sm:w-1/2 dark:bg-slate-700 dark:text-slate-200">
                 <div className="flex justify-end">
-                    <button onClick={() => setIsTermsModal(false)} className="text-gray-500 text-2xl">
+                    <button onClick={() => setIsTermsModal(false)} className="text-slate-300 text-2xl">
                         <IoClose />
                     </button>
                 </div>
@@ -52,7 +52,7 @@ const TermsModal: React.FC<Props> = ({ setIsTermsModal }) => {
                     <button
                         onClick={navigateToChat}
                         disabled={!check1 || !check2}
-                        className={`text-2xl px-4 py-2 rounded-md ${check1 && check2 ? 'bg-blue-500 text-white' : 'bg-gray-300 cursor-not-allowed'}`}>
+                        className={`text-2xl px-4 py-2 rounded-md ${check1 && check2 ? 'bg-blue-500 text-white' : 'bg-slate-300 cursor-not-allowed'}`}>
                         Confirm & continue
                     </button>
                 </div>

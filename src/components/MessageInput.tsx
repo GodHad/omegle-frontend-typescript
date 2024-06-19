@@ -159,7 +159,7 @@ const MessageInput: React.FC = () => {
                 <input
                     type="text"
                     placeholder="Type your message..."
-                    className="sm:border sm:border-gray-300 border-t border-l border-gray-300 border-r-0 border-b-0 outline-none w-full p-4 text-lg rounded border"
+                    className="sm:border sm:border-slate-300 border-t border-l border-slate-300 border-r-0 border-b-0 outline-none w-full p-4 text-lg rounded border disabled:bg-slate-100 disabled:dark:bg-slate-300"
                     onChange={(e) => {
                         setState(prevState => ({ ...prevState, message: e.target.value }));
                         typingHandle(e);
@@ -169,7 +169,7 @@ const MessageInput: React.FC = () => {
                     disabled={!state.receiver}
                 />
                 <button
-                    className="p-4 text-lg border rounded bg-blue-500 text-white disabled:text-white-300 disabled:bg-gray-300"
+                    className="p-4 text-lg rounded bg-blue-500 text-white disabled:text-white-300 disabled:dark:bg-slate-400 disabled:bg-slate-300"
                     onClick={sendMessage}
                     disabled={!state.receiver || state.isSending}
                 >
@@ -178,13 +178,13 @@ const MessageInput: React.FC = () => {
             </div>
             <div className="flex">
                 <button
-                    className="w-full sm:max-w-fit p-4 text-lg font-semibold border rounded bg-blue-500 text-white"
+                    className="w-full sm:max-w-fit p-4 text-lg font-semibold rounded bg-blue-500 text-white"
                     onClick={handleNewBtnClicked}
                 >
                     New
                 </button>
                 <button
-                    className="bg-red-500 w-full sm:max-w-fit p-4 text-lg font-semibold border rounded text-white disabled:text-white-300 disabled:bg-gray-300"
+                    className="bg-red-500 w-full sm:max-w-fit p-4 text-lg font-semibold rounded text-white disabled:text-white-300 disabled:dark:bg-slate-400 disabled:bg-slate-300"
                     onClick={disconnectChat}
                     disabled={!state.receiver}
                 >

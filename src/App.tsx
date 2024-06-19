@@ -13,6 +13,7 @@ import { SocketProvider } from './context/SocketContext';
 function App() {
   return (
     <BrowserRouter>
+    <div className='dark:bg-slate-700 bg-slate h-screen'>
       <AuthProvider>
         <ChatContextProvider>
           <ToastContainer />
@@ -22,6 +23,7 @@ function App() {
           </SocketProvider>
         </ChatContextProvider>
       </AuthProvider>
+      </div>
     </BrowserRouter>
   )
 }

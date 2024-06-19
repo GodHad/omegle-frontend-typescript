@@ -82,7 +82,7 @@ const Home: React.FC = () => {
 
     return (
         <>
-            <div className="desktop p-4 mx-auto border border-gray-300 rounded-lg overflow-hidden sm:block hidden">
+            <div className="desktop p-4 mx-auto rounded-lg overflow-hidden sm:block hidden dark:text-slate-200 text-slate-700">
                 <p className="text-center text-sm font-semibold">
                     You don't need an app to use Omegle on your phone or tablet! The web site works great on mobile.
                 </p>
@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                 <p className="text-xs text-center font-medium mt-4">
                     By using Omegle, you accept the terms at the bottom. You must be 18+ or 13+ with parental permission.
                 </p>
-                <div className="w-fit px-10 py-5 my-5 bg-blue-100 rounded-md mx-auto flex flex-col justify-center items-center gap-2">
+                <div className="w-fit px-10 py-5 my-5 bg-blue-100 dark:bg-blue-900 dark:text-white rounded-md mx-auto flex flex-col justify-center items-center gap-2">
                     <p className="text-xl font-semibold">Video is monitored. Keep it clean!</p>
                 </div>
                 <div className="mb-2 flex justify-between">
@@ -107,7 +107,7 @@ const Home: React.FC = () => {
                         <input
                             type="text"
                             placeholder="Add your interests(optional)"
-                            className="text-left text-lg p-3 w-80 border border-gray-300 rounded"
+                            className="text-left text-lg p-3 w-80 border border-gray-300 rounded text-slate-700"
                             onChange={(e) => setState((prevState) => ({
                                 ...prevState,
                                 interests: e.target.value
@@ -127,7 +127,7 @@ const Home: React.FC = () => {
                     <Link to="/admin">Go to Admin Page</Link>
                 </div>
             </div>
-            <div className="mobile mt-4 border border-gray-300 p-4 sm:hidden block">
+            <div className="mobile mt-4 p-4 sm:hidden block dark:text-slate-200 text-slate-700">
                 <div className="text-center leading-6 p-2">
                     Mobile video chat is an experimental new feature. Video is monitored, so keep it clean!
                 </div>
@@ -143,7 +143,7 @@ const Home: React.FC = () => {
                     <input
                         type="text"
                         placeholder="Add your interests (optional)"
-                        className="text-lg p-2 w-full border border-gray-200 rounded"
+                        className="text-lg p-2 w-full border border-gray-200 rounded text-slate-700"
                         onChange={(e) => setState((prevState) => ({
                             ...prevState,
                             interests: e.target.value

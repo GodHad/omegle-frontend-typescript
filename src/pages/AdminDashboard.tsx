@@ -79,7 +79,7 @@ const AdminDashboard = () => {
                 </div>
             </div>
             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                <thead className="bg-[#ff8100]">
+                <thead className="bg-[#5ac8fa] text-slate-100">
                     <tr>
                         <th className="w-10"><input type="checkbox" className="form-checkbox h-5 w-5 text-gray-600" /></th>
                         <th className="w-20 px-6 py-3 text-start text-small font-large"></th>

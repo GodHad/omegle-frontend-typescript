@@ -50,7 +50,7 @@ const Messages: React.FC = () => {
     };
 
     return (
-        <div id="savedchat" className="sm:h-[calc(100vh-175px)] h-[calc(100vh-370px)] p-2 overflow-y-scroll border border-gray-200 m-2" ref={messagesRef}>
+        <div id="savedchat" className="sm:h-[calc(100vh-175px)] h-[calc(100vh-370px)] p-2 overflow-y-scroll border border-slate-200 rounded-md m-2 dark:text-slate-200" ref={messagesRef}>
             {!state.isSearching && !state.receiver && (
                 <p className="text-center mb-2">Omegle : talk to strangers</p>
             )}
@@ -59,7 +59,7 @@ const Messages: React.FC = () => {
             {state.messages && state.messages.map((message, index) => (
                 <div key={index} className={message?.isMine ? "flex" : "flex justify-end"}>
                     <div className={"mt-3 text-lg mb-2 flex gap-1"}>
-                        <p className="font-bold" style={{ color: message?.isMine ? "red" : "blue" }}>
+                        <p className={`font-bold ${message.isMine ? "text-red-500 dark:text-red-400" : "text-blue-500 dark:text-blue-400"}`}>
                             {message?.isMine ? "Stranger: " : "You: "}
                         </p>
                         <p>{message.content}</p>
@@ -74,8 +74,8 @@ const Messages: React.FC = () => {
 
             {!state.isSearching && !state.receiver && (
                 <>
-                    <p className="text-center sm:hidden block text-gray-500 font-semibold my-4">Stranger has disconnected.</p>
-                    <p className="text-center sm:block hidden text-gray-500 font-semibold my-4">Your conversational partner has disconnected</p>
+                    <p className="text-center sm:hidden block text-slate-300 font-semibold my-4">Stranger has disconnected.</p>
+                    <p className="text-center sm:block hidden text-slate-300 font-semibold my-4">Your conversational partner has disconnected</p>
                     <div className="sm:hidden flex flex-col justify-center items-center">
                         <p className="text-center text-sm"><span><input type="checkbox" /></span> Find strangers with common interests <span className="text-blue-500 underline cursor-pointer">Settings</span></p>
                         <p className="text-center text-lg font-semibold mt-2 bg-orange-500 p-2 rounded-md cursor-pointer" onClick={takeScreenshot}>Great chat? Save the log!</p>

@@ -4,6 +4,8 @@ import { User } from "../types/user";
 interface AuthContextType {
     user: User | null;
     login: (user: User) => void;
+    darkmode: boolean;
+    setDarkMode: (darkMode: boolean) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -15,8 +17,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setUser(user);
     }
 
+    const [darkmode, setDarkmode] = useState<boolean>(localStorage.getItem('them') === 'dark');
+
+    const setDarkMode = (darkMode: boolean) => {
+        if (darkMode) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+        setDarkmode(darkMode)
+    }
+
     return (
-        <AuthContext.Provider value={{ user, login }}>
+        <AuthContext.Provider value={{ user, login, darkmode, setDarkMode }}>
             {children}
         </AuthContext.Provider>
     )
