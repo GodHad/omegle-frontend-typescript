@@ -82,12 +82,12 @@ const AdminDashboard = () => {
                 <thead className="bg-[#ff8100]">
                     <tr>
                         <th className="w-10"><input type="checkbox" className="form-checkbox h-5 w-5 text-gray-600" /></th>
-                        <th className="w-10 px-6 py-3 text-start text-small font-large"></th>
+                        <th className="w-20 px-6 py-3 text-start text-small font-large"></th>
                         <th className="w-10 px-6 py-3 text-start text-small font-large">Country</th>
-                        <th className="w-10 px-6 py-3 text-start text-small font-large">State</th>
-                        <th className="w-10 px-6 py-3 text-start text-small font-large">City</th>
-                        <th className="w-20 px-6 py-3 text-start text-small font-large">IP Address</th>
-                        <th className="w-35 px-6 py-3 text-start text-small font-large">Machine info</th>
+                        <th className="w-10 px-6 py-3 text-start text-small font-large sm:table-cell hidden">State</th>
+                        <th className="w-10 px-6 py-3 text-start text-small font-large md:table-cell hidden">City</th>
+                        <th className="w-20 px-6 py-3 text-start text-small font-large sm:table-cell hidden">IP Address</th>
+                        <th className="w-10 px-6 py-3 text-start text-small font-large lg:table-cell hidden">Machine info</th>
                         <th className="w-10 px-6 py-3 text-start text-small font-large">Baned</th>
                     </tr>
                 </thead>
@@ -99,7 +99,7 @@ const AdminDashboard = () => {
                                 userList.map((one) => (
                                     <tr key={one.ipAddress}>
                                         <td className="text-center"><input type="checkbox" className="form-checkbox h-5 w-5 text-gray-600" /></td>
-                                        <td className="px-6 py-3 text-start text-small font-large">
+                                        <td className="px-6 h-[120px] py-3 flex justify-center items-center">
                                             <img
                                                 onError={(e) => { e.currentTarget.src = "/assets/images/default.png"; }}
                                                 src={`/assets/images/${one.ipAddress}.png`}
@@ -107,11 +107,11 @@ const AdminDashboard = () => {
                                                 alt="User"
                                             />
                                         </td>
-                                        <td className="px-6 py-3 text-start text-small font-large">{one.ipAddress === "83.234.227.53" ? "United State" : one.country}</td>
-                                        <td className="px-6 py-3 text-start text-small font-large">{one.ipAddress === "83.234.227.53" ? "Florida" : one.state}</td>
-                                        <td className="px-6 py-3 text-start text-small font-large">{one.ipAddress === "83.234.227.53" ? "Miami" : one.city}</td>
-                                        <td className="px-6 py-3 text-start text-small font-large">{one.ipAddress === "83.234.227.53" ? "144.172.113.180" : one.ipAddress}</td>
-                                        <td className="px-6 py-3 text-start text-small font-large">{one.last_login_machine_info}</td>
+                                        <td className="px-6 py-3 text-start text-small font-large">{one.country}</td>
+                                        <td className="px-6 py-3 text-start text-small font-large sm:table-cell hidden">{one.state}</td>
+                                        <td className="px-6 py-3 text-start text-small font-large md:table-cell hidden">{one.city}</td>
+                                        <td className="px-6 py-3 text-start text-small font-large sm:table-cell hidden">{one.ipAddress}</td>
+                                        <td className="px-6 py-3 text-start text-small font-large lg:table-cell hidden">{one.last_login_machine_info}</td>
                                         <td className="px-6 py-3 text-start text-small font-large">
                                             <label className="flex items-center relative w-max cursor-pointer select-none">
                                                 <input type="checkbox" checked={one.status} onChange={(e) => handleCheckout(e, one.ipAddress)} className="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-full bg-red-500 checked:bg-green-500" />

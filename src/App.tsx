@@ -5,10 +5,10 @@ import { ToastContainer } from 'react-toastify';
 
 import CustomRoutes from './routes';
 import Header from './layout/Header';
-import Socket from './Socket';
 
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
+import { SocketProvider } from './context/SocketContext';
 
 function App() {
   return (
@@ -16,9 +16,10 @@ function App() {
       <AuthProvider>
         <ChatContextProvider>
           <ToastContainer />
-          <Socket />
           <Header />
-          <CustomRoutes />
+          <SocketProvider>
+            <CustomRoutes />
+          </SocketProvider>
         </ChatContextProvider>
       </AuthProvider>
     </BrowserRouter>

@@ -1,12 +1,13 @@
 import { useRef } from 'react';
 import { useChat } from "../context/ChatContext";
-import { socket } from "../Socket";
 import html2canvas from "html2canvas";
 import axios from 'axios';
 import { apiUrl } from "../utils/constant";
 import { toast } from 'react-toastify';
+import { useSocket } from '../context/SocketContext';
 
 const MessageInput: React.FC = () => {
+    const { socket } = useSocket();
     const { state, setState } = useChat();
     const lastSendMsgTime = useRef<number>(0);
     const typingTimeout = useRef<NodeJS.Timeout | null>(null);

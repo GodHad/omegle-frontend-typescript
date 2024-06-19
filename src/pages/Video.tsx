@@ -4,12 +4,13 @@ import { useChat } from "../context/ChatContext";
 import html2canvas from 'html2canvas';
 import Peer from 'simple-peer';
 import { toast } from 'react-toastify';
-import { socket } from '../Socket';
 import Messages from '../components/Messages';
 import MessageInput from '../components/MessageInput';
+import { useSocket } from '../context/SocketContext';
 
 const Video: React.FC = () => {
     const { state } = useChat();
+    const { socket } = useSocket();
     const myVideo = useRef<HTMLVideoElement | null>(null);
     const userVideo = useRef<HTMLVideoElement | null>(null);
     const connectionRef = useRef<Peer.Instance | null>(null);

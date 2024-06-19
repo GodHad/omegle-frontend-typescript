@@ -1,24 +1,30 @@
-import { useEffect } from "react";
-import { io } from "socket.io-client";
-import { useChat } from "./context/ChatContext";
-import { apiUrl } from "./utils/constant";
-import { toast } from "react-toastify";
-import { User } from "./types/user";
-import { Receiver } from "./types/receiver";
-import { SignalData } from "simple-peer";
+import { createContext, useContext, useEffect, ReactNode } from 'react';
+import { io, Socket } from 'socket.io-client';
+import { useChat } from './ChatContext';
+import { apiUrl } from '../utils/constant';
+import { toast } from 'react-toastify';
+import { User } from '../types/user';
+import { Receiver } from '../types/receiver';
+import { SignalData } from 'simple-peer';
 
-export const socket = io(apiUrl, {
+const socket = io(apiUrl, {
     autoConnect: false,
     reconnectionAttempts: 5
 });
 
-const Socket: React.FC = () => {
+interface SocketContextType {
+    socket: Socket;
+}
+
+const SocketContext = createContext<SocketContextType | undefined>(undefined);
+
+export const SocketProvider = ({ children }: { children: ReactNode }) => {
     const { state, setState } = useChat();
 
     useEffect(() => {
         socket.connect();
         console.log("socket connected");
-
+        
         return () => {
             socket.disconnect();
             console.log("socket disconnected...");
@@ -59,13 +65,13 @@ const Socket: React.FC = () => {
         const onGetOnlineUsers = (onlineUsers: User[]) => {
             setState(prevState => {
                 const receiverExists = prevState.receiver && onlineUsers.some(user => user._id === prevState.receiver?.socketId);
-    
+
                 if (prevState.receiver && !receiverExists) {
                     socket.emit('chat-close', prevState.receiver.socketId, () => {
                         setState(prev => ({ ...prev, receiver: null, isTyping: false, message: '' }));
                     });
                 }
-    
+
                 return { ...prevState, onlineUsers };
             });
         };
@@ -130,7 +136,17 @@ const Socket: React.FC = () => {
         };
     }, [setState]);
 
-    return null;
+    return (
+        <SocketContext.Provider value={{ socket }}>
+            {children}
+        </SocketContext.Provider>
+    );
 };
 
-export default Socket;
+export const useSocket = () => {
+    const context = useContext(SocketContext);
+    if (context === undefined) {
+        throw new Error('useSocket must be used within a SocketProvider');
+    }
+    return context;
+};

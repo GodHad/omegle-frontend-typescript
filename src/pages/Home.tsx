@@ -9,10 +9,12 @@ import { apiUrl } from '../utils/constant';
 import usaFlag from '../assets/usaFlag.jpg';
 import TermsModal from '../components/TermsModal';
 import TermsVideoModal from '../components/TermsVideoModal';
+import { useSocket } from '../context/SocketContext';
 
 const Home: React.FC = () => {
     const { login } = useAuth();
-    const { setState } = useChat();
+    const { state, setState } = useChat();
+    const { socket } = useSocket();
 
     const [isTermsModal, setIsTermsModal] = useState<boolean>(false);
     const [isTermsVideoModal, setIsTermsVideoModal] = useState<boolean>(false);
@@ -48,6 +50,26 @@ const Home: React.FC = () => {
         }
 
         fetchUserData();
+        if (state.socketId) {
+            socket.emit('unpairing-user', state.socketId, () => {
+                setState((prevState) => ({
+                    ...prevState,
+                    isSearching: false
+                }))
+            })
+        }
+
+        if (state.receiver) {
+            socket.emit('chat-close', state.receiver.socketId, () => {
+                setState((prevState) => ({
+                    ...prevState,
+                    receiver: null,
+                    isTyping: false,
+                    message: '',
+                    isSearching: false
+                }))
+            })
+        }
     }, [])
 
     const onTextBtnClicked = () => {

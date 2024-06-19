@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { useChat } from '../context/ChatContext';
-import { socket } from '../Socket';
 import html2canvas from 'html2canvas';
 import { toast } from 'react-toastify';
+import { useSocket } from '../context/SocketContext';
 
 const Messages: React.FC = () => {
     const { state, setState } = useChat();
+    const { socket } = useSocket();
     const messagesRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
@@ -15,7 +16,7 @@ const Messages: React.FC = () => {
     }, [state.messages]);
 
     useEffect(() => {
-        newChat();
+        if (!!!state.receiver) newChat();
         return () => {
             socket.off('pairing-user');
         };
@@ -66,7 +67,7 @@ const Messages: React.FC = () => {
                 </div>
             ))}
 
-            {state.isTyping && <p className="mt-1">Stranger is typing...</p>}
+            {state.isTyping && <p className="mt-1 text-center">Stranger is typing...</p>}
 
             {state.isSearching && <p className="text-center sm:hidden block">Connecting to server...</p>}
             {state.isSearching && <p className="text-center sm:block hidden">Looking for someone you can chat with...</p>}
