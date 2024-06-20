@@ -50,7 +50,7 @@ const Messages: React.FC = () => {
     };
 
     return (
-        <div id="savedchat" className="sm:h-[calc(100vh-175px)] h-[calc(100vh-220px)] p-2 overflow-y-scroll border border-slate-200 rounded-md m-2 dark:text-slate-200" ref={messagesRef}>
+        <div id="savedchat" className="h-full p-2 overflow-y-scroll border border-slate-200 rounded-md m-2 dark:text-slate-200" ref={messagesRef}>
             {!state.isSearching && !state.receiver && (
                 <p className="text-center mb-2">Omegle : talk to strangers</p>
             )}

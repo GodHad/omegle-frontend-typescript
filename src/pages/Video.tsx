@@ -143,13 +143,13 @@ const Video: React.FC = () => {
                         : 'Omegle: Talk to strangers!'}
                 </title>
             </Helmet>
-            <div className="flex sm:flex-row flex-col">
+            <div className="flex sm:flex-row flex-col h-[calc(100vh-200px)] sm:flex-none">
                 <div className="flex flex-col p-2 sm:w-1/2 w-full gap-2 relative sm:static">
                     {callAccepted ? (
-                        <div className="relative">
+                        <div className="relative min-h-[200px]">
                             <video
                                 id="userVideo"
-                                className="w-full sm:max-h-[45vh] max-h-[23vh] sm:h-[25vh] bg-black"
+                                className="w-full sm:max-h-[23vh] sm:h-[25vh] min-h-[200px] sm:bg-black bg-black"
                                 ref={userVideo}
                                 autoPlay
                                 playsInline
@@ -165,7 +165,7 @@ const Video: React.FC = () => {
                             </button>
                         </div>
                     ) : (
-                        <div className="w-full bg-black sm:max-h-[45vh] max-h-[23vh] sm:h-[25vh] h-[20vh] flex justify-center items-center relative">
+                        <div className="w-full bg-black min-h-[200px] flex justify-center items-center relative">
                             <svg
                                 className="text-gray-300 animate-spin"
                                 viewBox="0 0 64 64"
@@ -214,7 +214,7 @@ const Video: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col w-full justify-between relative sm:h-full h-[69vh]">
+                <div className="w-full justify-between relative sm:h-full h-[calc(100%-250px)]">
                     <Messages />
                     <div className="sm:static fixed w-full bottom-0">
                         <MessageInput />

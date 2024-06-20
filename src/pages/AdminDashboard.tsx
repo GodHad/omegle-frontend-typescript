@@ -3,12 +3,15 @@ import { useEffect, useState } from "react"
 import { apiUrl } from "../utils/constant";
 import { toast } from "react-toastify";
 import { User } from "../types/user";
+import PreviewModal from "../components/PreviewModal";
 
 
 const AdminDashboard = () => {
     const [userList, setUserList] = useState<User[]>([]);
     const [realUserList, setRealUserList] = useState<User[]>([]);
     const [search, setSearch] = useState<string>('');
+    const [isPreviewModal, setIsPreviewModal] = useState<boolean>(false);
+    const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
     const getAllUsers = async () => {
         axios
@@ -91,13 +94,13 @@ const AdminDashboard = () => {
                         <th className="w-10 px-6 py-3 text-start text-small font-large">Baned</th>
                     </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-gray-200 dark:text-slate-200">
                     {
                         userList.length === 0
                             ? (<tr className="text-center"><td colSpan={6} className="text-[30px] p-10">There is no users</td></tr>)
                             : (
                                 userList.map((one) => (
-                                    <tr key={one.ipAddress}>
+                                    <tr key={one.ipAddress} onClick={() => { setSelectedUser(one); setIsPreviewModal(true); }}>
                                         <td className="text-center"><input type="checkbox" className="form-checkbox h-5 w-5 text-gray-600" /></td>
                                         <td className="px-6 h-[120px] py-3 flex justify-center items-center">
                                             <img
@@ -126,6 +129,7 @@ const AdminDashboard = () => {
                     }
                 </tbody>
             </table>
+            {isPreviewModal && selectedUser && <PreviewModal user={selectedUser} setIsPreviewModal={(data: boolean) => setIsPreviewModal(data)} />}
         </div>
     )
 }

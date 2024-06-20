@@ -13,15 +13,13 @@ import { SocketProvider } from './context/SocketContext';
 function App() {
   return (
     <BrowserRouter>
-      <div className='dark:bg-slate-700 bg-slate h-screen flex flex-col'>
+      <div className='dark:bg-slate-700 bg-slate-100 h-screen flex flex-col'>
         <AuthProvider>
           <ChatContextProvider>
             <ToastContainer />
             <Header />
             <SocketProvider>
-              <div className="flex-grow">
-                <CustomRoutes />
-              </div>
+              <CustomRoutes />
             </SocketProvider>
           </ChatContextProvider>
         </AuthProvider>

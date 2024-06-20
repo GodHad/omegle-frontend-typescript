@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 const Header: React.FC = () => {
     const { setDarkMode } = useAuth();
     return (
-        <div className="p-4 flex justify-between items-center max-h-[7vh] border-b-2 border-slate-200">
+        <div className="p-4 flex justify-between items-center max-h-70px] border-b-2 border-slate-200">
             <div className="flex items-center gap-12">
                 <img src={OmegleLogo} alt="Omegle Logo" className="h-12" />
                 <p className="text-2xl font-bold transform -rotate-2 sm:block hidden text-slate-700 dark:text-slate-200">Talk to strangers!</p>

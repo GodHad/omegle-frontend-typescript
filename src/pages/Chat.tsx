@@ -16,7 +16,7 @@ const Chat: React.FC = () => {
                     <title>Omegle: Talk to strangers!</title>
                 </Helmet>
             )}
-            <div className="w-full h-[calc(100vh-75px)] flex flex-col justify-between">
+            <div className="w-full h-[calc(100vh-90px)] flex flex-col justify-between">
                 <Messages />
                 <MessageInput />
             </div>
