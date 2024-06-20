@@ -1,5 +1,4 @@
 import { useRef, useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { useChat } from "../context/ChatContext";
 import html2canvas from 'html2canvas';
 import Peer from 'simple-peer';
@@ -136,13 +135,6 @@ const Video: React.FC = () => {
     }
     return (
         <>
-            <Helmet>
-                <title>
-                    {state.receiver?.socketId
-                        ? 'Omegle: Connected to someone'
-                        : 'Omegle: Talk to strangers!'}
-                </title>
-            </Helmet>
             <div className="flex sm:flex-row flex-col h-[calc(100vh-200px)] sm:flex-none">
                 <div className="flex flex-col p-2 sm:w-1/2 w-full gap-2 relative sm:static">
                     {callAccepted ? (
