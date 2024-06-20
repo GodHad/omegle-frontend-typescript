@@ -82,20 +82,20 @@ const Home: React.FC = () => {
 
     return (
         <>
-            <div className="desktop p-4 mx-auto rounded-lg overflow-hidden sm:block hidden dark:text-slate-200 text-slate-700">
-                <p className="text-center text-sm font-semibold">
+            <div className="desktop p-4 mx-auto rounded-lg overflow-hidden sm:flex sm:flex-col sm:justify-evenly hidden dark:text-slate-200 text-slate-700 h-full text-lg">
+                <p className="text-center text-xl font-semibold">
                     You don't need an app to use Omegle on your phone or tablet! The web site works great on mobile.
                 </p>
                 <div className="flex justify-center">
                     <img src={usaFlag} alt="USA Flag" className="h-44 w-80 my-5 object-cover bg-gray-50" />
                 </div>
-                <p className="text-base leading-6">
+                <p className="leading-6">
                     Omegle (oh-meg-ull) is a great way to meet new friends. When you use Omegle, we pick someone else at random and let you talk one-on-one. To help you stay safe, chats are anonymous unless you tell someone who you are (not suggested!), and you can stop a chat at any time. Predators have been known to use Omegle, so please be careful.
                 </p>
-                <p className="text-base leading-6 mt-2">
+                <p className="leading-6 mt-2">
                     If you prefer, you can add your interests, and Omegle will look for someone who's into some of the same things as you instead of someone completely random.
                 </p>
-                <p className="text-xs text-center font-medium mt-4">
+                <p className="text-sm text-center font-medium mt-4">
                     By using Omegle, you accept the terms at the bottom. You must be 18+ or 13+ with parental permission.
                 </p>
                 <div className="w-fit px-10 py-5 my-5 bg-blue-100 dark:bg-blue-900 dark:text-white rounded-md mx-auto flex flex-col justify-center items-center gap-2">
@@ -127,15 +127,15 @@ const Home: React.FC = () => {
                     <Link to="/admin">Go to Admin Page</Link>
                 </div>
             </div>
-            <div className="mobile mt-4 p-4 sm:hidden block dark:text-slate-200 text-slate-700">
-                <div className="text-center leading-6 p-2">
+            <div className="mobile p-4 sm:hidden flex flex-col justify-evenly dark:text-slate-200 text-slate-700 h-full">
+                <div className="text-center leading-6 p-2 text-xl font-bold">
                     Mobile video chat is an experimental new feature. Video is monitored, so keep it clean!
                 </div>
                 <div className="text-center leading-6 p-2">
                     Go to <span className="text-blue-500 underline cursor-pointer">an adult site</span> if that's what you want, and you are 18 or older.
                 </div>
-                <div className="py-2 flex justify-center gap-4">
-                    <button className="text-lg text-white font-semibold p-2.5 border border-gray-300 rounded bg-blue-500" onClick={onTextBtnClicked}>Start a chat</button>
+                <div className="py-2 flex justify-center gap-8">
+                    <button className="text-lg text-white font-semibold p-2.5 border border-gray-300 rounded bg-blue-500" onClick={onTextBtnClicked}>Start a Chat</button>
                     <button className="text-lg text-white font-semibold p-2.5 border border-gray-300 rounded bg-red-500" onClick={onVideoBtnClicked}>Video</button>
                 </div>
                 <div>

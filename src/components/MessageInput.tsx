@@ -169,7 +169,7 @@ const MessageInput: React.FC = () => {
                     disabled={!state.receiver}
                 />
                 <button
-                    className="p-4 text-lg rounded bg-blue-500 text-white disabled:text-white-300 disabled:dark:bg-slate-400 disabled:bg-slate-300"
+                    className="p-4 text-lg rounded bg-blue-500 text-white disabled:text-white-300 disabled:dark:bg-slate-400 disabled:bg-slate-300 border dark:border-slate-800"
                     onClick={sendMessage}
                     disabled={!state.receiver || state.isSending}
                 >

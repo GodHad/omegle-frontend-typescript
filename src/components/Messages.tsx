@@ -78,7 +78,7 @@ const Messages: React.FC = () => {
                     <p className="text-center sm:block hidden text-slate-300 font-semibold my-4">Your conversational partner has disconnected</p>
                     <div className="sm:hidden flex flex-col justify-center items-center">
                         <p className="text-center text-sm"><span><input type="checkbox" /></span> Find strangers with common interests <span className="text-blue-500 underline cursor-pointer">Settings</span></p>
-                        <p className="text-center text-lg font-semibold mt-2 bg-orange-500 p-2 rounded-md cursor-pointer" onClick={takeScreenshot}>Great chat? Save the log!</p>
+                        <p className="text-center text-lg font-semibold mt-2 bg-orange-500 p-2 rounded-md cursor-pointer text-white" onClick={takeScreenshot}>Great Chat? Save the log!</p>
                     </div>
                     <div className="sm:flex hidden gap-1 items-center justify-center items-center">
                         <button onClick={newChat}>Start a new conversation</button>
