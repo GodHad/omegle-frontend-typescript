@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                 <p className="text-sm text-center font-medium mt-4">
                     By using Omegle, you accept the terms at the bottom. You must be 18+ or 13+ with parental permission.
                 </p>
-                <div className="w-fit px-10 py-5 my-5 bg-blue-100 dark:bg-blue-900 dark:text-white rounded-md mx-auto flex flex-col justify-center items-center gap-2">
+                <div className="w-fit px-10 py-5 my-5 bg-blue-200 dark:bg-blue-900 dark:text-white rounded-md mx-auto flex flex-col justify-center items-center gap-2">
                     <p className="text-xl font-semibold">Video is monitored. Keep it clean!</p>
                 </div>
                 <div className="mb-2 flex justify-between">
