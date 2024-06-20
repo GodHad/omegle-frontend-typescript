@@ -134,9 +134,8 @@ const Home: React.FC = () => {
                 <div className="text-center leading-6 p-2">
                     Go to <span className="text-blue-500 underline cursor-pointer">an adult site</span> if that's what you want, and you are 18 or older.
                 </div>
-                <div className="py-2 flex justify-center gap-8">
-                    <button className="text-lg text-white font-semibold p-2.5 border border-gray-300 rounded bg-blue-500" onClick={onTextBtnClicked}>Start a Chat</button>
-                    <button className="text-lg text-white font-semibold p-2.5 border border-gray-300 rounded bg-red-500" onClick={onVideoBtnClicked}>Video</button>
+                <div className="leading-6 p-2 mt-2">
+                    Omegle (omegul) is a great way to meet new friends, even while practicing social distancing. When you use Omegle, you are paired randomly with another person to talk one-on-one. If you prefer, you can add your interests and you'll be randomly paired with someone who selected some of the same interests.
                 </div>
                 <div>
                     <div className="text-center pt-2 pb-1 text-lg">Meet strangers with your interests!</div>
@@ -150,8 +149,9 @@ const Home: React.FC = () => {
                         }))}
                     />
                 </div>
-                <div className="leading-6 p-2 mt-2">
-                    Omegle (omegul) is a great way to meet new friends, even while practicing social distancing. When you use Omegle, you are paired randomly with another person to talk one-on-one. If you prefer, you can add your interests and you'll be randomly paired with someone who selected some of the same interests.
+                <div className="py-2 flex justify-center gap-8">
+                    <button className="text-lg text-white font-semibold w-28 p-3 bg-blue-500 rounded" onClick={onTextBtnClicked}>Text</button>
+                    <button className="text-lg text-white font-semibold w-28 p-3 bg-red-500 rounded" onClick={onVideoBtnClicked}>Video</button>
                 </div>
                 <div className="text-center underline text-blue-500">
                     <Link to="/admin">Go to Admin Page</Link>
