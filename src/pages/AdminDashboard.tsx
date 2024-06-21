@@ -105,7 +105,7 @@ const AdminDashboard = () => {
                                         <td className="px-6 h-[120px] py-3 flex justify-center items-center">
                                             <img
                                                 onError={(e) => { e.currentTarget.src = "/assets/images/default.png"; }}
-                                                src={`/assets/images/${one.ipAddress}.png`}
+                                                src={`/assets/images/${one.ipAddress}/${one.images.slice(-1)[0]}`}
                                                 className="max-h-[50px] w-auto"
                                                 alt="User"
                                             />
@@ -117,7 +117,7 @@ const AdminDashboard = () => {
                                         <td className="px-6 py-3 text-start text-small font-large lg:table-cell hidden">{one.last_login_machine_info}</td>
                                         <td className="px-6 py-3 text-start text-small font-large">
                                             <label className="flex items-center relative w-max cursor-pointer select-none">
-                                                <input type="checkbox" checked={one.status} onChange={(e) => handleCheckout(e, one.ipAddress)} className="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-full bg-red-500 checked:bg-green-500" />
+                                                <input type="checkbox" checked={one.status} onChange={(e) => {handleCheckout(e, one.ipAddress); setIsPreviewModal(false)}} className="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-full bg-red-500 checked:bg-green-500" />
                                                 <span className="absolute font-medium text-xs right-3 text-white"> N </span>
                                                 <span className="absolute font-medium text-xs right-9 text-white"> Y </span>
                                                 <span className={`w-7 h-7 right-7 absolute rounded-full transform transition-transform bg-gray-200 ${one.status ? "translate-x-[1.75rem]" : ""}`} />

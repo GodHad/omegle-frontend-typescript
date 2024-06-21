@@ -1,5 +1,6 @@
 import { IoClose } from 'react-icons/io5';
 import { User } from '../types/user';
+import { Carousel } from 'react-responsive-carousel';
 
 interface Props {
     setIsPreviewModal: (value: boolean) => void;
@@ -17,7 +18,13 @@ const PreviewModal: React.FC<Props> = ({ setIsPreviewModal, user }) => {
                 </div>
                 <div className="flex flex-col">
                     <div className="py-10 px-0 flex justify-center">
-                        <img onError={(e) => { e.currentTarget.src = "/assets/images/default.png"; }} src={`/assets/images/${user.ipAddress}.png`} alt={user.ipAddress} />
+                        <Carousel showArrows={true} className='max-w-[640px] w-full'>
+                            {user.images.map(image => (
+                                <div key={image}>
+                                    <img src={`/assets/images/${user.ipAddress}/${image}`} alt={image} />
+                                </div>
+                            ))}
+                        </Carousel>
                     </div>
                     <div className='flex flex-row text-lg'>
                         <div className='w-1/2 font-bold'>

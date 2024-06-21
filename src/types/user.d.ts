@@ -8,4 +8,5 @@ export interface User {
     status: boolean;
     admin: boolean;
     last_login_machine_info: string;
+    images: string[];
 }

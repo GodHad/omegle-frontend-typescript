@@ -41,7 +41,7 @@ const TermsVideoModal: React.FC<Props> = ({ setIsTermsVideoModal }) => {
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center overflow-hidden">
-            <div className="bg-white p-8 rounded-2xl w-5/6 sm:w-1/2 dark:bg-slate-700 dark:text-slate-200">
+            <div className="bg-slate-100 p-8 rounded-2xl w-5/6 sm:w-1/2 dark:bg-slate-700 dark:text-slate-200">
                 <div className="flex justify-end relative">
                     <button onClick={() => setIsTermsVideoModal(false)} className="text-gray-500 text-2xl absolute top-0 right-0">
                         <IoClose />

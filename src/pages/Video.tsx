@@ -38,7 +38,7 @@ const Video: React.FC = () => {
         } else {
             setCallAccepted(false)
         }
-    })
+    }, [state.signal])
 
     const callUser = (socketId: string) => {
         const peer = new Peer({ initiator: true, trickle: false, stream });
@@ -101,7 +101,7 @@ const Video: React.FC = () => {
             }
         }
 
-        if (!state.receiver?.socketId && connectionRef.current) {
+        if (!state.receiver && connectionRef.current) {
             connectionRef.current.destroy()
         }
     }, [state.receiver, state.caller, stream])
