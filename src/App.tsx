@@ -18,7 +18,7 @@ window.process = process;
 function App() {
   return (
     <BrowserRouter>
-      <div className='dark:bg-slate-700 bg-slate-100 flex flex-col h-screen'>
+      <div className='dark:bg-slate-700 bg-slate-100 flex flex-col h-fit min-h-screen'>
         <AuthProvider>
           <ChatContextProvider>
             <ToastContainer />

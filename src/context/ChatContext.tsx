@@ -20,6 +20,7 @@ interface ChatStateType {
     ipAddress: string;
     signal: string | SignalData;
     onlineUsers: User[];
+    unreadMessages: number;
 }
 
 interface ChatContextType {
@@ -42,7 +43,8 @@ const initialState: ChatStateType = {
     message: '',
     ipAddress: '',
     signal: '',
-    onlineUsers: []
+    onlineUsers: [],
+    unreadMessages: 0
 };
 
 export const ChatContext = createContext<ChatContextType | undefined>(undefined);

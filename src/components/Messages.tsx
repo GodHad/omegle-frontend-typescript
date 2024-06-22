@@ -50,7 +50,7 @@ const Messages: React.FC = () => {
     };
 
     return (
-        <div id="savedchat" className="h-full p-2 overflow-y-scroll border border-slate-200 rounded-md m-2 dark:text-slate-200" ref={messagesRef}>
+        <div id="savedchat" className="sm:h-[calc(100%-75px)] h-full p-2 border border-slate-200 dark:bg-slate-700 bg-slate-100 rounded-md mx-2 dark:text-slate-200 overflow-y-auto" ref={messagesRef}>
             {!state.isSearching && !state.receiver && (
                 <p className="text-center mb-2">Omegle : talk to strangers</p>
             )}
@@ -60,7 +60,7 @@ const Messages: React.FC = () => {
                 <div key={index} className={message?.isMine ? "flex" : "flex justify-end"}>
                     <div className={"mt-3 text-lg mb-2 flex gap-1"}>
                         <p className={`font-bold ${message.isMine ? "text-red-500 dark:text-red-400" : "text-blue-500 dark:text-blue-400"}`}>
-                            {message?.isMine ? "Stranger: " : "You: "}
+                            {!message?.isMine ? "Stranger: " : "You: "}
                         </p>
                         <p>{message.content}</p>
                     </div>

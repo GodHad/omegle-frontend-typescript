@@ -79,7 +79,8 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
         const onSendMessage = (message: string) => {
             setState(prevState => ({
                 ...prevState,
-                messages: [...prevState.messages, { isMine: true, content: message }],
+                messages: [...prevState.messages, { isMine: false, content: message }],
+                unreadMessages: prevState.unreadMessages + 1,
                 isTyping: false
             }));
         };
@@ -87,7 +88,7 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
         const onReceiveMessage = (message: string) => {
             setState(prevState => ({
                 ...prevState,
-                messages: [...prevState.messages, { isMine: false, content: message }],
+                messages: [...prevState.messages, { isMine: true, content: message }],
                 isSending: false
             }));
         };

@@ -82,7 +82,7 @@ const Home: React.FC = () => {
 
     return (
         <>
-            <div className="desktop p-4 mx-auto rounded-lg overflow-hidden sm:flex sm:flex-col sm:justify-evenly hidden dark:text-slate-200 text-slate-700 h-full text-lg">
+            <div className="desktop p-4 mx-auto rounded-lg overflow-hidden sm:flex sm:flex-col sm:justify-evenly hidden dark:text-slate-200 text-slate-700 h-full text-lg min-h-[calc(100vh-70px)]">
                 <p className="text-center text-xl font-semibold">
                     You don't need an app to use Omegle on your phone or tablet! The web site works great on mobile.
                 </p>
@@ -127,7 +127,7 @@ const Home: React.FC = () => {
                     <Link to="/admin">Go to Admin Page</Link>
                 </div>
             </div>
-            <div className="mobile p-4 sm:hidden flex flex-col justify-evenly dark:text-slate-200 text-slate-700 h-full">
+            <div className="mobile p-4 sm:hidden flex flex-col justify-evenly dark:text-slate-200 text-slate-700 h-full min-h-[calc(100vh-70px)]">
                 <div className="text-center leading-6 p-2 text-xl font-bold">
                     Mobile video chat is an experimental new feature. Video is monitored, so keep it clean!
                 </div>
